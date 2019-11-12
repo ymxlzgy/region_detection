@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="ndt_omp" type="showNDTVoxelwithThreeType" name="showNDTVoxelwithThreeType" output="screen" >
+        <param name="fileName"      type="string" value="/home/xjh/record_data/0908/1/2019-09-08-16-52-20SyncSystemTime.bag.pcd"/>
+        <!-- cell的体素大小 -->
+        <param name="ndtResolution"  type="double"    value="1.0"/>
+        <!-- cell的长轴和短轴比例阈值 -->
+        <param name="scaleValue"  type="double"    value="4.0"/>
+
+        <param name="lamda_p"  type="double"    value="0.6"/>
+    </node>
+
+<!-- RVIZ to view the visualization -->
+<node name="RVIZ" pkg="rviz" type="rviz" args=" -d $(find ndt_omp)/rviz_cfg/showndt.rviz" />
+
+</launch>
+

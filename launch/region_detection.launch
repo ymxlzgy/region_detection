@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node pkg="region_detection" type="region_detection" name="region_detection" output="screen" >
+        <param name="fileName"      type="string" value="/home/ymxl/catkin_realsense/src/ORBSLAM2_realsense/ORB_SLAM2_realsense/bin/result.pcd"/>
+        <!--<param name="fileName"      type="string" value="/home/ymxl/Downloads/pcl-1.7.2/test/milk_color.pcd"/>-->
+        <param name="outputDir"      type="string" value="/home/ymxl/catkin_realsense/src/region_detection/data/"/>
+        <!-- cell的体素大小 -->
+        <param name="ndtResolution"  type="double"    value="0.25"/>
+        <!-- cell的长轴和短轴比例阈值 -->
+        <param name="scaleValue"  type="double"    value="6.0"/>
+
+        <param name="lamda_p"  type="double"    value="0.6"/>
+
+    </node>
+
+    <!-- RVIZ to view the visualization -->
+    <node name="RVIZ" pkg="rviz" type="rviz" args=" -d $(find region_detection)/rviz_cfg/showndt.rviz" />
+
+</launch>
